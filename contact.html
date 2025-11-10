@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Om Singh</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <div class="nav-brand">Om Singh</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="internships.html">Internships</a>
+                <a href="education.html">Education</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero page-hero-contact">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="prime-badge"></div>
+            <h1>Get In Touch</h1>
+            <p>Mumbai, Maharashtra | India</p>
+            <div class="ranking-badge">#Let's Connect</div>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.querySelector('.content-section').scrollIntoView({behavior: 'smooth'})">
+                    Contact Now
+                </button>
+                <button class="btn-secondary" title="Add to list">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="btn-secondary" title="More info">
+                    <i class="fas fa-info-circle"></i>
+                </button>
+            </div>
+            <div class="watch-info">
+                <i class="fas fa-star"></i>
+                <span>Available for freelance and full-time opportunities</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="content-section contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>8591224365</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Mumbai, Maharashtra, India</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+            
+            <div class="social-links">
+                <a href="https://github.com/Om-Singh-45" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/om-singh5/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/omsingh_45_45?igsh=MXB5M2g2MzN0anlyYw%3D%3D" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:omsingh@example.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Om Singh. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

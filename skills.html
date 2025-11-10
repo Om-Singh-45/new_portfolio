@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Om Singh</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="prime-theme.css">
+    <link rel="stylesheet" href="hero-carousel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <div class="nav-brand">Om Singh</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html" class="active">Skills</a>
+                <a href="internships.html">Internships</a>
+                <a href="education.html">Education</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section class="hero-carousel">
+        <div class="carousel-slides">
+            <!-- Slide 1: Programming Languages -->
+            <div class="carousel-slide slide-bg-skills active">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <div class="prime-logo-badge">
+                        <svg viewBox="0 0 80 28" fill="#00a8e1">
+                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
+                        </svg>
+                    </div>
+                    <p class="slide-category">Python | JavaScript | Java</p>
+                    <h1 class="slide-title">Technical Skills</h1>
+                    <div class="slide-tag">#TechStack</div>
+                    <div class="slide-buttons">
+                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
+                            Explore Skills
+                        </button>
+                        <button class="slide-btn-icon" title="Add to list">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <button class="slide-btn-icon" title="More info">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                    <div class="slide-tagline">
+                        <i class="fas fa-star"></i>
+                        <span>My Tools & Expertise | Expert Level Proficiency</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2: AI & ML -->
+            <div class="carousel-slide slide-bg-skills">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <div class="prime-logo-badge">
+                        <svg viewBox="0 0 80 28" fill="#00a8e1">
+                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
+                        </svg>
+                    </div>
+                    <p class="slide-category">Machine Learning | Deep Learning | NLP</p>
+                    <h1 class="slide-title">AI Mastery</h1>
+                    <div class="slide-tag">#ArtificialIntelligence</div>
+                    <div class="slide-buttons">
+                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
+                            View AI Skills
+                        </button>
+                        <button class="slide-btn-icon" title="Add to list">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <button class="slide-btn-icon" title="More info">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                    <div class="slide-tagline">
+                        <i class="fas fa-star"></i>
+                        <span>TensorFlow | Scikit-Learn | NLTK</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3: Web & Data -->
+            <div class="carousel-slide slide-bg-skills">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <div class="prime-logo-badge">
+                        <svg viewBox="0 0 80 28" fill="#00a8e1">
+                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
+                        </svg>
+                    </div>
+                    <p class="slide-category">Flask | HTML5 | CSS3 | MySQL | Power BI</p>
+                    <h1 class="slide-title">Full Stack</h1>
+                    <div class="slide-tag">#WebDevelopment</div>
+                    <div class="slide-buttons">
+                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
+                            Explore Stack
+                        </button>
+                        <button class="slide-btn-icon" title="Add to list">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <button class="slide-btn-icon" title="More info">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                    <div class="slide-tagline">
+                        <i class="fas fa-star"></i>
+                        <span>Full-Stack Development & Data Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="carousel-nav prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-nav next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- Pagination Dots -->
+        <div class="carousel-pagination">
+            <button class="carousel-dot active"></button>
+            <button class="carousel-dot"></button>
+            <button class="carousel-dot"></button>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="carousel-progress">
+            <div class="carousel-progress-bar"></div>
+        </div>
+    </section>
+
+    <!-- Prime Content Section -->
+    <section class="prime-content">
+        <!-- Programming Languages -->
+        <div class="prime-row">
+            <div class="row-header">
+                <h2>Programming Languages</h2>
+                <a href="#" class="see-more">See more <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="slider-container">
+                <button class="slider-btn slider-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="prime-slider">
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Python</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 95%"></div>
+                        </div>
+                        <p class="proficiency">Expert - 3+ years</p>
+                    </div>
+                    
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <h3>Java</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 80%"></div>
+                        </div>
+                        <p class="proficiency">Advanced - 2+ years</p>
+                    </div>
+                    
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 85%"></div>
+                        </div>
+                        <p class="proficiency">Advanced - 2+ years</p>
+                    </div>
+                </div>
+                <button class="slider-btn slider-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <!-- AI & Machine Learning -->
+        <div class="prime-row">
+            <div class="row-header">
+                <h2>AI & Machine Learning</h2>
+                <a href="#" class="see-more">See more <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="slider-container">
+                <button class="slider-btn slider-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="prime-slider">
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Machine Learning</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 90%"></div>
+                        </div>
+                        <p class="proficiency">Expert - Scikit-Learn</p>
+                    </div>
+                    
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Deep Learning</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 85%"></div>
+                        </div>
+                        <p class="proficiency">Advanced - TensorFlow</p>
+                    </div>
+                    
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>NLP</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 80%"></div>
+                        </div>
+                        <p class="proficiency">Advanced - NLTK, spaCy</p>
+                    </div>
+                </div>
+                <button class="slider-btn slider-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Web Development -->
+        <div class="prime-row">
+            <div class="row-header">
+                <h2>Web Development</h2>
+                <a href="#" class="see-more">See more <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="slider-container">
+                <button class="slider-btn slider-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="prime-slider">
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3>HTML5</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 95%"></div>
+                        </div>
+                        <p class="proficiency">Expert - Semantic HTML</p>
+                    </div>
+                    
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <h3>CSS3</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 90%"></div>
+                        </div>
+                        <p class="proficiency">Expert - Responsive Design</p>
+                    </div>
+                    
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Flask</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 85%"></div>
+                        </div>
+                        <p class="proficiency">Advanced - REST APIs</p>
+                    </div>
+                </div>
+                <button class="slider-btn slider-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Data & Analytics -->
+        <div class="prime-row">
+            <div class="row-header">
+                <h2>Data & Analytics</h2>
+                <a href="#" class="see-more">See more <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="slider-container">
+                <button class="slider-btn slider-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="prime-slider">
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>MySQL</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 90%"></div>
+                        </div>
+                        <p class="proficiency">Expert - Database Design</p>
+                    </div>
+                    
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Power BI</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 85%"></div>
+                        </div>
+                        <p class="proficiency">Advanced - Dashboards</p>
+                    </div>
+                    
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-table"></i>
+                        </div>
+                        <h3>Excel</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 80%"></div>
+                        </div>
+                        <p class="proficiency">Advanced - Analysis</p>
+                    </div>
+                </div>
+                <button class="slider-btn slider-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Tools & Technologies -->
+        <div class="prime-row">
+            <div class="row-header">
+                <h2>Tools & Technologies</h2>
+                <a href="#" class="see-more">See more <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="slider-container">
+                <button class="slider-btn slider-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="prime-slider">
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <h3>Git & GitHub</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 90%"></div>
+                        </div>
+                        <p class="proficiency">Expert - Version Control</p>
+                    </div>
+                    
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Jira</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 75%"></div>
+                        </div>
+                        <p class="proficiency">Intermediate - Agile</p>
+                    </div>
+                    
+                    <div class="skill-prime-card">
+                        <div class="skill-icon-wrapper">
+                            <i class="fas fa-sticky-note"></i>
+                        </div>
+                        <h3>Notion</h3>
+                        <div class="skill-level">
+                            <div class="level-bar" style="width: 80%"></div>
+                        </div>
+                        <p class="proficiency">Advanced - Documentation</p>
+                    </div>
+                </div>
+                <button class="slider-btn slider-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Om Singh. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="prime-slider.js"></script>
+    <script src="hero-carousel.js"></script>
+</body>
+</html>

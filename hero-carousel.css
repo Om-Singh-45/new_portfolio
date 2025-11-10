@@ -1,0 +1,425 @@
+/* Prime Video Hero Carousel */
+
+.hero-carousel {
+    position: relative;
+    height: 85vh;
+    min-height: 600px;
+    margin-top: 60px;
+    overflow: hidden;
+    background: #0a0e1a;
+}
+
+.carousel-slides {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Slide Overlays */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to right,
+        rgba(10, 14, 26, 0.92) 0%,
+        rgba(10, 14, 26, 0.75) 35%,
+        rgba(10, 14, 26, 0.35) 65%,
+        rgba(10, 14, 26, 0.10) 100%
+    );
+    z-index: 1;
+}
+
+.slide-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        rgba(10, 14, 26, 0.3) 100%
+    );
+    z-index: 1;
+}
+
+.slide-overlay::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 250px;
+    background: linear-gradient(to top, #0f171e 0%, rgba(15, 23, 30, 0.8) 40%, transparent 100%);
+    z-index: 2;
+}
+
+/* Enhanced overlay for internship slides */
+.slide-bg-internships .slide-overlay {
+    background: linear-gradient(
+        to right,
+        rgba(10, 14, 26, 0.95) 0%,
+        rgba(10, 14, 26, 0.88) 30%,
+        rgba(10, 14, 26, 0.70) 50%,
+        rgba(10, 14, 26, 0.30) 75%,
+        rgba(10, 14, 26, 0.05) 100%
+    );
+}
+
+.slide-bg-internships .slide-overlay::before {
+    background: radial-gradient(
+        ellipse 60% 50% at 80% 50%,
+        rgba(31, 128, 224, 0.12) 0%,
+        transparent 60%
+    );
+}
+
+/* Slide Content */
+.slide-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50px;
+    max-width: 650px;
+    z-index: 2;
+    animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-45%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%);
+    }
+}
+
+.prime-logo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.prime-logo-badge svg {
+    width: 80px;
+    height: 28px;
+}
+
+.slide-category {
+    font-size: 16px;
+    color: #e5e7eb;
+    margin-bottom: 15px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.slide-title {
+    font-size: 68px;
+    font-weight: 400;
+    margin-bottom: 18px;
+    color: #ffffff;
+    text-shadow: 3px 5px 12px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.7);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    font-family: 'Poppins', 'Amazon Ember', Arial, sans-serif;
+}
+
+.slide-tag {
+    display: inline-block;
+    font-size: 20px;
+    color: #00ff00;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-shadow: 0 0 15px rgba(0, 255, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.slide-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.slide-btn-primary {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    padding: 14px 32px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.slide-btn-primary:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.02);
+}
+
+.slide-btn-icon {
+    background: transparent;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.slide-btn-icon:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.slide-tagline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #d1d5db;
+    margin-top: 18px;
+}
+
+.slide-tagline i {
+    color: #fbbf24;
+    font-size: 18px;
+}
+
+/* Navigation Arrows */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: #ffffff;
+    width: 60px;
+    height: 120px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    opacity: 0;
+}
+
+.hero-carousel:hover .carousel-nav {
+    opacity: 1;
+}
+
+.carousel-nav:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-nav.prev {
+    left: 0;
+}
+
+.carousel-nav.next {
+    right: 0;
+}
+
+/* Pagination Dots */
+.carousel-pagination {
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.carousel-dot.active {
+    background: #ffffff;
+    width: 14px;
+    height: 14px;
+}
+
+/* Progress Bar */
+.carousel-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: rgba(26, 152, 255, 0.3);
+    width: 100%;
+    z-index: 10;
+}
+
+.carousel-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #1f80e0 0%, #00aaff 100%);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+/* Slide Backgrounds - Removed as we use inline styles with actual images */
+
+/* Internship-specific styling for better logo presentation */
+.slide-bg-internships {
+    background-size: 40% !important;
+    background-position: 85% center !important;
+    background-color: #0a0e1a;
+    background-blend-mode: lighten;
+}
+
+.slide-bg-internships::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(31, 128, 224, 0.08) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Projects-specific styling for better screenshot presentation */
+.slide-bg-projects {
+    background-size: cover !important;
+    background-position: center center !important;
+    filter: brightness(1.15) contrast(1.08) saturate(1.1);
+}
+
+/* Education-specific styling for better institute image presentation */
+.slide-bg-education {
+    background-size: cover !important;
+    background-position: center center !important;
+    filter: brightness(1.08) contrast(1.05) saturate(1.05);
+}
+
+/* Skills-specific styling */
+.slide-bg-skills {
+    background-size: cover !important;
+    background-position: center center !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-carousel {
+        height: 70vh;
+        min-height: 500px;
+    }
+    
+    .slide-content {
+        left: 20px;
+        right: 20px;
+        max-width: 100%;
+        padding-right: 20px;
+    }
+    
+    .slide-title {
+        font-size: 42px;
+    }
+    
+    .slide-category {
+        font-size: 14px;
+    }
+    
+    .slide-tag {
+        font-size: 16px;
+    }
+    
+    .slide-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .slide-btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .carousel-pagination {
+        left: 20px;
+        bottom: 30px;
+    }
+    
+    .carousel-nav {
+        width: 50px;
+        height: 100px;
+        font-size: 24px;
+    }
+}
+
+/* Animation for active slide content */
+.carousel-slide.active .slide-content {
+    animation: slideIn 0.8s ease-out;
+}
+
+/* Fade transition */
+.carousel-slide {
+    transition: opacity 1s ease-in-out, transform 0s linear 1s;
+}
+
+.carousel-slide:not(.active) {
+    transform: scale(1.05);
+}
+
+.carousel-slide.active {
+    transform: scale(1);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}

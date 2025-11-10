@@ -1,0 +1,467 @@
+/* Prime Video Theme - Cinematic Dark Design */
+
+/* Prime Content Base */
+.prime-content {
+    background: #0d0d0d;
+    padding: 60px 0 80px;
+    min-height: 100vh;
+}
+
+/* Prime Row Container */
+.prime-row {
+    margin-bottom: 60px;
+    padding: 0 50px;
+}
+
+.row-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.row-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.see-more {
+    color: #00aaff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.see-more:hover {
+    color: #1f80e0;
+    gap: 12px;
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.prime-slider {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 10px 0;
+}
+
+.prime-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Slider Navigation Buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: #ffffff;
+    width: 50px;
+    height: 100px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    opacity: 0;
+}
+
+.slider-container:hover .slider-btn {
+    opacity: 1;
+}
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.slider-prev {
+    left: 0;
+}
+
+.slider-next {
+    right: 0;
+}
+
+/* Prime Project Cards */
+.prime-card {
+    min-width: 320px;
+    flex-shrink: 0;
+    background: #121212;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+}
+
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.prime-card:hover {
+    transform: scale(1.08);
+    z-index: 5;
+    box-shadow: 0 15px 50px rgba(0, 170, 255, 0.4);
+}
+
+.prime-card:hover .card-image img {
+    transform: scale(1.15);
+    filter: brightness(0.7) blur(2px);
+}
+
+/* Card Overlay */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.prime-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.overlay-btn {
+    background: linear-gradient(135deg, #1f80e0 0%, #00aaff 100%);
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.overlay-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(31, 128, 224, 0.6);
+}
+
+.view-btn {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.view-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Card Content */
+.card-content {
+    padding: 18px;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.3;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Tech Icons */
+.tech-icons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tech-icons span {
+    background: rgba(31, 128, 224, 0.15);
+    color: #00aaff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid rgba(31, 128, 224, 0.3);
+    transition: all 0.3s ease;
+}
+
+.tech-icons span:hover {
+    background: rgba(31, 128, 224, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Skill Prime Cards */
+.skill-prime-card {
+    min-width: 250px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-prime-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: linear-gradient(135deg, #252525 0%, #121212 100%);
+    border-color: #00aaff;
+    box-shadow: 0 15px 40px rgba(0, 170, 255, 0.3);
+}
+
+.skill-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #1f80e0 0%, #00aaff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #ffffff;
+    transition: all 0.4s ease;
+}
+
+.skill-prime-card:hover .skill-icon-wrapper {
+    transform: rotate(10deg) scale(1.1);
+    box-shadow: 0 10px 30px rgba(31, 128, 224, 0.6);
+}
+
+.skill-prime-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Skill Level Bar */
+.skill-level {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.level-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #1f80e0 0%, #00aaff 100%);
+    border-radius: 3px;
+    transition: all 0.5s ease;
+}
+
+.skill-prime-card:hover .level-bar {
+    box-shadow: 0 0 15px #00aaff;
+}
+
+.proficiency {
+    font-size: 14px;
+    color: #00aaff;
+    font-weight: 500;
+}
+
+/* Education Prime Cards */
+.education-prime-card {
+    min-width: 400px;
+    flex-shrink: 0;
+    background: #121212;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.education-prime-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: #00aaff;
+    box-shadow: 0 15px 50px rgba(0, 170, 255, 0.4);
+}
+
+.education-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.education-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.education-prime-card:hover .education-image img {
+    transform: scale(1.1);
+}
+
+.education-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #1f80e0 0%, #00aaff 100%);
+    color: #ffffff;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.education-info {
+    padding: 25px;
+}
+
+.degree-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #1f80e0 0%, #00aaff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+}
+
+.education-prime-card:hover .degree-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.education-info h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.institute {
+    font-size: 16px;
+    color: #00aaff;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.duration {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.highlights span {
+    font-size: 14px;
+    color: #d1d5db;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.highlights i {
+    color: #00aaff;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .prime-row {
+        padding: 0 20px;
+    }
+    
+    .row-header h2 {
+        font-size: 22px;
+    }
+    
+    .prime-card {
+        min-width: 280px;
+    }
+    
+    .skill-prime-card {
+        min-width: 220px;
+    }
+    
+    .education-prime-card {
+        min-width: 320px;
+    }
+    
+    .slider-btn {
+        display: none;
+    }
+}
+
+/* Smooth Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.prime-row {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.prime-card, .skill-prime-card, .education-prime-card {
+    animation: fadeIn 0.6s ease-out;
+}
