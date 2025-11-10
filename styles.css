@@ -5,12 +5,20 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 body {
     font-family: 'Amazon Ember', Arial, sans-serif;
     background-color: #0f171e;
     color: #ffffff;
     overflow-x: hidden;
     cursor: none;
+    line-height: 1.6;
 }
 
 /* Custom Cursor Trail */
@@ -536,6 +544,10 @@ body.nav-open {
 }
 
 @media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
     .nav-toggle {
         display: flex;
     }
