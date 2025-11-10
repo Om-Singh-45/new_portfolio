@@ -688,15 +688,15 @@
         padding: 12px 20px;
         font-size: 14px;
         justify-content: center;
-        min-height: 40px; /* Touch-friendly size */
+        min-height: 44px; /* Touch-friendly size */
     }
     
     .slide-btn-icon {
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
         font-size: 18px;
-        min-width: 40px; /* Touch-friendly size */
-        min-height: 40px; /* Touch-friendly size */
+        min-width: 44px; /* Touch-friendly size */
+        min-height: 44px; /* Touch-friendly size */
     }
     
     .slide-tagline {
@@ -713,6 +713,8 @@
         width: 45px;
         height: 90px;
         font-size: 20px;
+        min-width: 44px; /* Touch-friendly size */
+        min-height: 44px; /* Touch-friendly size */
     }
     
     .carousel-nav.prev {
@@ -749,6 +751,9 @@
     .carousel-dot {
         width: 10px;
         height: 10px;
+        min-width: 44px; /* Touch-friendly size */
+        min-height: 44px; /* Touch-friendly size */
+        margin: 0 5px;
     }
     
     .carousel-dot.active {

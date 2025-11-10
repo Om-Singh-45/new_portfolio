@@ -459,6 +459,8 @@
         width: 60px;
         height: 60px;
         font-size: 30px;
+        min-width: 44px; /* Touch-friendly size */
+        min-height: 44px; /* Touch-friendly size */
     }
     
     .skill-prime-card h3 {
@@ -496,11 +498,28 @@
     .tech-icons span {
         padding: 5px 10px;
         font-size: 11px;
+        min-height: 24px; /* Touch-friendly size */
     }
     
     .overlay-btn {
         padding: 10px 15px;
         font-size: 13px;
+        min-height: 36px; /* Touch-friendly size */
+    }
+    
+    /* Ensure touch-friendly elements */
+    .prime-card,
+    .skill-prime-card,
+    .education-prime-card {
+        min-height: 44px; /* Touch-friendly size */
+    }
+    
+    .card-image img {
+        min-height: 44px; /* Touch-friendly size */
+    }
+    
+    .education-image img {
+        min-height: 44px; /* Touch-friendly size */
     }
 }
 

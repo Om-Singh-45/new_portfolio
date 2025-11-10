@@ -2,110 +2,103 @@
 // Navbar scroll effect with progress indicator
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        // Update navbar scroll progress
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercentage = (scrollTop / scrollHeight) * 100;
+        navbar.style.setProperty('--scroll-progress', `${scrollPercentage}%`);
     }
-    
-    // Update navbar scroll progress
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrollPercentage = (scrollTop / scrollHeight) * 100;
-    navbar.style.setProperty('--scroll-progress', `${scrollPercentage}%`);
 });
 
-// Mobile navigation toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-// Create mobile navigation menu
-const mobileNavMenu = document.createElement('div');
-mobileNavMenu.className = 'mobile-nav-menu';
-
-const mobileNavClose = document.createElement('div');
-mobileNavClose.className = 'mobile-nav-close';
-mobileNavClose.innerHTML = '&times;';
-
-const mobileNavLinksContainer = document.createElement('div');
-mobileNavLinksContainer.className = 'mobile-nav-links';
-
-// Clone navigation links for mobile menu
-const navLinksClone = navLinks.cloneNode(true);
-mobileNavLinksContainer.appendChild(navLinksClone);
-
-mobileNavMenu.appendChild(mobileNavClose);
-mobileNavMenu.appendChild(mobileNavLinksContainer);
-document.body.appendChild(mobileNavMenu);
-
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        mobileNavMenu.classList.toggle('active');
-        document.body.classList.toggle('nav-open');
-    });
-
-    // Close mobile menu when clicking on a link
-    mobileNavLinksContainer.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            mobileNavMenu.classList.remove('active');
-            document.body.classList.remove('nav-open');
+// Mobile navigation toggle - simplified approach
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('nav-open');
+            
+            // Prevent body scroll when menu is open
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
-    });
-
-    // Close mobile menu when clicking close button
-    mobileNavClose.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        mobileNavMenu.classList.remove('active');
-        document.body.classList.remove('nav-open');
-    });
-
-    // Close mobile menu when clicking outside
-    mobileNavMenu.addEventListener('click', (e) => {
-        if (e.target === mobileNavMenu) {
-            navToggle.classList.remove('active');
-            mobileNavMenu.classList.remove('active');
-            document.body.classList.remove('nav-open');
-        }
-    });
-}
+        
+        // Close mobile menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('nav-open');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close mobile menu when resizing to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('nav-open');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+});
 
 // Enhanced Navigation - Active Link Tracking
-const navLinksArray = document.querySelectorAll('.nav-links a');
-const navSections = document.querySelectorAll('section[id]');
-
-function setActiveLink() {
-    const scrollY = window.pageYOffset;
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinksArray = document.querySelectorAll('.nav-links a');
+    const navSections = document.querySelectorAll('section[id]');
     
-    navSections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinksArray.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
+    if (navLinksArray.length > 0 && navSections.length > 0) {
+        function setActiveLink() {
+            const scrollY = window.pageYOffset;
+            
+            navSections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinksArray.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
                 }
             });
         }
-    });
-}
-
-window.addEventListener('scroll', setActiveLink);
+        
+        window.addEventListener('scroll', setActiveLink);
+    }
+});
 
 // Logo click - smooth scroll to top
-const navBrand = document.querySelector('.nav-brand');
-if (navBrand) {
-    navBrand.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+document.addEventListener('DOMContentLoaded', () => {
+    const navBrand = document.querySelector('.nav-brand');
+    if (navBrand) {
+        navBrand.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    });
-}
+    }
+});
 
 // ========================================
 // ADVANCED NAVIGATION: Search Functionality
