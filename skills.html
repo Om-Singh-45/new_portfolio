@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&h=1080&fit=crop">
+    <!-- Resource hints -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
 </head>
 <body>
     <!-- Navigation -->
@@ -33,118 +37,29 @@
         </div>
     </nav>
 
-    <!-- Hero Carousel -->
-    <section class="hero-carousel">
-        <div class="carousel-slides">
-            <!-- Slide 1: Programming Languages -->
-            <div class="carousel-slide slide-bg-skills active">
-                <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="prime-logo-badge">
-                        <svg viewBox="0 0 80 28" fill="#00a8e1">
-                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
-                        </svg>
-                    </div>
-                    <p class="slide-category">Python | JavaScript | Java</p>
-                    <h1 class="slide-title">Technical Skills</h1>
-                    <div class="slide-tag">#TechStack</div>
-                    <div class="slide-buttons">
-                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
-                            Explore Skills
-                        </button>
-                        <button class="slide-btn-icon" title="Add to list">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <button class="slide-btn-icon" title="More info">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                    <div class="slide-tagline">
-                        <i class="fas fa-star"></i>
-                        <span>My Tools & Expertise | Expert Level Proficiency</span>
-                    </div>
-                </div>
+    <!-- Hero Section -->
+    <section class="page-hero" data-bg="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&h=1080&fit=crop">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="prime-badge"></div>
+            <h1>Technical Skills</h1>
+            <p>Python | JavaScript | Java | AI & ML | Web Development</p>
+            <div class="ranking-badge">#TechStack</div>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
+                    Explore Skills
+                </button>
+                <button class="btn-secondary" title="Add to list">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="btn-secondary" title="More info">
+                    <i class="fas fa-info-circle"></i>
+                </button>
             </div>
-            
-            <!-- Slide 2: AI & ML -->
-            <div class="carousel-slide slide-bg-skills">
-                <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="prime-logo-badge">
-                        <svg viewBox="0 0 80 28" fill="#00a8e1">
-                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
-                        </svg>
-                    </div>
-                    <p class="slide-category">Machine Learning | Deep Learning | NLP</p>
-                    <h1 class="slide-title">AI Mastery</h1>
-                    <div class="slide-tag">#ArtificialIntelligence</div>
-                    <div class="slide-buttons">
-                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
-                            View AI Skills
-                        </button>
-                        <button class="slide-btn-icon" title="Add to list">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <button class="slide-btn-icon" title="More info">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                    <div class="slide-tagline">
-                        <i class="fas fa-star"></i>
-                        <span>TensorFlow | Scikit-Learn | NLTK</span>
-                    </div>
-                </div>
+            <div class="watch-info">
+                <i class="fas fa-star"></i>
+                <span>Expert Level Proficiency | Full-Stack Development | AI & Data Analytics</span>
             </div>
-            
-            <!-- Slide 3: Web & Data -->
-            <div class="carousel-slide slide-bg-skills">
-                <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="prime-logo-badge">
-                        <svg viewBox="0 0 80 28" fill="#00a8e1">
-                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
-                        </svg>
-                    </div>
-                    <p class="slide-category">Flask | HTML5 | CSS3 | MySQL | Power BI</p>
-                    <h1 class="slide-title">Full Stack</h1>
-                    <div class="slide-tag">#WebDevelopment</div>
-                    <div class="slide-buttons">
-                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
-                            Explore Stack
-                        </button>
-                        <button class="slide-btn-icon" title="Add to list">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <button class="slide-btn-icon" title="More info">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                    <div class="slide-tagline">
-                        <i class="fas fa-star"></i>
-                        <span>Full-Stack Development & Data Analytics</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Navigation Arrows -->
-        <button class="carousel-nav prev">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-nav next">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-        
-        <!-- Pagination Dots -->
-        <div class="carousel-pagination">
-            <button class="carousel-dot active"></button>
-            <button class="carousel-dot"></button>
-            <button class="carousel-dot"></button>
-        </div>
-        
-        <!-- Progress Bar -->
-        <div class="carousel-progress">
-            <div class="carousel-progress-bar"></div>
         </div>
     </section>
 

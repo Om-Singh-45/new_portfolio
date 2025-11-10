@@ -19,27 +19,53 @@ window.addEventListener('scroll', () => {
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
+// Create mobile navigation menu
+const mobileNavMenu = document.createElement('div');
+mobileNavMenu.className = 'mobile-nav-menu';
+
+const mobileNavClose = document.createElement('div');
+mobileNavClose.className = 'mobile-nav-close';
+mobileNavClose.innerHTML = '&times;';
+
+const mobileNavLinksContainer = document.createElement('div');
+mobileNavLinksContainer.className = 'mobile-nav-links';
+
+// Clone navigation links for mobile menu
+const navLinksClone = navLinks.cloneNode(true);
+mobileNavLinksContainer.appendChild(navLinksClone);
+
+mobileNavMenu.appendChild(mobileNavClose);
+mobileNavMenu.appendChild(mobileNavLinksContainer);
+document.body.appendChild(mobileNavMenu);
+
 if (navToggle) {
     navToggle.addEventListener('click', () => {
         navToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
+        mobileNavMenu.classList.toggle('active');
         document.body.classList.toggle('nav-open');
     });
 
     // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    mobileNavLinksContainer.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+            mobileNavMenu.classList.remove('active');
             document.body.classList.remove('nav-open');
         });
     });
 
+    // Close mobile menu when clicking close button
+    mobileNavClose.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        mobileNavMenu.classList.remove('active');
+        document.body.classList.remove('nav-open');
+    });
+
     // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+    mobileNavMenu.addEventListener('click', (e) => {
+        if (e.target === mobileNavMenu) {
             navToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+            mobileNavMenu.classList.remove('active');
             document.body.classList.remove('nav-open');
         }
     });
@@ -669,3 +695,117 @@ const sectionObserver = new IntersectionObserver((entries) => {
 sections.forEach(section => {
     sectionObserver.observe(section);
 });
+
+// Lazy loading for background images
+function lazyLoadBackgroundImages() {
+    const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+    
+    if ('IntersectionObserver' in window) {
+        const backgroundObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const backgroundElement = entry.target;
+                    const backgroundImage = backgroundElement.dataset.bg;
+                    
+                    // Create image to preload
+                    const img = new Image();
+                    img.onload = () => {
+                        backgroundElement.style.backgroundImage = `url(${backgroundImage})`;
+                        backgroundElement.classList.add('loaded');
+                    };
+                    img.src = backgroundImage;
+                    
+                    backgroundObserver.unobserve(backgroundElement);
+                }
+            });
+        }, {
+            rootMargin: '50px' // Load images 50px before they come into view
+        });
+        
+        lazyBackgrounds.forEach(background => {
+            backgroundObserver.observe(background);
+        });
+    } else {
+        // Fallback for browsers that don't support Intersection Observer
+        lazyBackgrounds.forEach(background => {
+            const backgroundImage = background.dataset.bg;
+            background.style.backgroundImage = `url(${backgroundImage})`;
+            background.classList.add('loaded');
+        });
+    }
+}
+
+// Call lazy loading for background images when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    lazyLoadBackgroundImages();
+});
+
+// Enhanced lazy loading for carousel images
+function lazyLoadCarouselImages() {
+    const carouselSlides = document.querySelectorAll('.carousel-slide');
+    
+    if ('IntersectionObserver' in window) {
+        const carouselObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const slide = entry.target;
+                    
+                    // If background image is already set, skip
+                    if (slide.style.backgroundImage && slide.style.backgroundImage !== 'none') {
+                        carouselObserver.unobserve(slide);
+                        return;
+                    }
+                    
+                    // Get the data-bg attribute
+                    const backgroundImageUrl = slide.dataset.bg;
+                    
+                    if (backgroundImageUrl) {
+                        // Preload the image
+                        const img = new Image();
+                        img.onload = () => {
+                            slide.style.backgroundImage = `url(${backgroundImageUrl})`;
+                            slide.classList.add('loaded');
+                        };
+                        img.src = backgroundImageUrl;
+                        
+                        carouselObserver.unobserve(slide);
+                    }
+                }
+            });
+        }, {
+            rootMargin: '100px' // Load images 100px before they come into view for smoother experience
+        });
+        
+        carouselSlides.forEach(slide => {
+            carouselObserver.observe(slide);
+        });
+    }
+}
+
+// Call lazy loading for carousel images
+document.addEventListener('DOMContentLoaded', () => {
+    lazyLoadCarouselImages();
+});
+
+// Check if device is mobile
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+// Disable heavy animations on mobile for performance
+function optimizeForMobile() {
+    if (isMobile()) {
+        // Disable particles on mobile
+        const particlesCanvas = document.getElementById('particles-canvas');
+        if (particlesCanvas) {
+            particlesCanvas.style.display = 'none';
+        }
+        
+        // Reduce animation intensity
+        document.body.classList.add('mobile-optimized');
+    }
+}
+
+// Run mobile optimization on load and resize
+window.addEventListener('load', optimizeForMobile);
+window.addEventListener('resize', optimizeForMobile);

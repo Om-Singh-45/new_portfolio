@@ -11,6 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="https://om-singh-45.github.io/Portfolio/images/projects/text_to_image.png">
+    <link rel="preload" as="image" href="https://github.com/Om-Singh-45/Portfolio/blob/main/images/projects/Screenshot%202025-11-10%20163609.png?raw=true">
+    <!-- Resource hints -->
+    <link rel="dns-prefetch" href="https://github.com">
+    <link rel="dns-prefetch" href="https://om-singh-45.github.io">
+    <link rel="dns-prefetch" href="https://media.licdn.com">
 </head>
 <body>
     <!-- Navigation -->
@@ -36,123 +43,43 @@
     <!-- Hero Carousel -->
     <section class="hero-carousel">
         <div class="carousel-slides">
-            <!-- Slide 1: Text-to-Image Generator -->
-            <div class="carousel-slide slide-bg-projects active" style="background-image: url('https://om-singh-45.github.io/Portfolio/images/projects/text_to_image.png');">
+
+              <!-- Slide 1: Movie Ticket Booking System -->
+            <div class="carousel-slide slide-bg-projects" data-bg="https://om-singh-45.github.io/Portfolio/images/projects/movie_booking.png">
                 <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="prime-logo-badge">
-                        <svg viewBox="0 0 80 28" fill="#00a8e1">
-                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
-                        </svg>
-                    </div>
-                    <p class="slide-category">AI & Machine Learning | Deep Learning | Image Generation</p>
-                    <h1 class="slide-title">Text-to-Image</h1>
-                    <div class="slide-tag">#AIArtGeneration</div>
-                    <div class="slide-buttons">
-                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
-                            View Project
-                        </button>
-                        <button class="slide-btn-icon" title="Add to list">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <button class="slide-btn-icon" title="More info">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                    <div class="slide-tagline">
-                        <i class="fas fa-star"></i>
-                        <span>Convert Text Prompts into Stunning AI-Generated Images</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 2: Food Recipe Suggestor -->
-            <div class="carousel-slide slide-bg-projects" style="background-image: url('https://om-singh-45.github.io/Portfolio/images/projects/recipe_finder.png');">
-                <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="prime-logo-badge">
-                        <svg viewBox="0 0 80 28" fill="#00a8e1">
-                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
-                        </svg>
-                    </div>
-                    <p class="slide-category">Web Development | Machine Learning | Recipe Finder</p>
-                    <h1 class="slide-title">Recipe Finder</h1>
-                    <div class="slide-tag">#SmartCooking</div>
-                    <div class="slide-buttons">
-                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
-                            Explore Recipes
-                        </button>
-                        <button class="slide-btn-icon" title="Add to list">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <button class="slide-btn-icon" title="More info">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                    <div class="slide-tagline">
-                        <i class="fas fa-star"></i>
-                        <span>ML-Based System | Ingredient Detection | Smart Suggestions</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 3: Movie Ticket Booking System -->
-            <div class="carousel-slide slide-bg-projects" style="background-image: url('https://om-singh-45.github.io/Portfolio/images/projects/movie_booking.png');">
-                <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="prime-logo-badge">
-                        <svg viewBox="0 0 80 28" fill="#00a8e1">
-                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
-                        </svg>
-                    </div>
+                <div class="slide-content slide-content-minimal">
+                    <h1 class="slide-title">Movie Ticket Booking System</h1>
                     <p class="slide-category">Web Development | Python | AI Chatbot Integration</p>
-                    <h1 class="slide-title">Movie Booking</h1>
-                    <div class="slide-tag">#SmartBooking</div>
-                    <div class="slide-buttons">
-                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
-                            View Details
-                        </button>
-                        <button class="slide-btn-icon" title="Add to list">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <button class="slide-btn-icon" title="More info">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                    <div class="slide-tagline">
-                        <i class="fas fa-star"></i>
-                        <span>Intelligent Booking | AI Chat Features | Seat Selection</span>
-                    </div>
                 </div>
             </div>
+
+
+            <!-- Slide 2: Text-to-Image Generator -->
+            <div class="carousel-slide slide-bg-projects active" data-bg="https://github.com/Om-Singh-45/Portfolio/blob/main/images/projects/Screenshot%202025-11-10%20204016.png?raw=true">
+                <div class="slide-overlay"></div>
+                <div class="slide-content slide-content-minimal">
+                    <h1 class="slide-title">Text-to-Image Generation</h1>
+                    <p class="slide-category">AI & Machine Learning | Deep Learning | Image Generation</p>
+                </div>
+            </div>
+            
+            <!-- Slide 3: Food Recipe Suggestor -->
+            <div class="carousel-slide slide-bg-projects" data-bg="https://om-singh-45.github.io/Portfolio/images/projects/recipe_finder.png">
+                <div class="slide-overlay"></div>
+                <div class="slide-content slide-content-minimal">
+                    <h1 class="slide-title">Food Recipe Suggestor</h1>
+                    <p class="slide-category">Web Development | Machine Learning | Recipe Finder</p>
+                </div>
+            </div>
+            
+            
             
             <!-- Slide 4: Agricultural Analytics Dashboard -->
-            <div class="carousel-slide slide-bg-projects" style="background-image: url('https://media.licdn.com/dms/image/v2/D4D2DAQGPNG70e_p9Yg/profile-treasury-image-shrink_8192_8192/B4DZZ8i8i0GcAg-/0/1745846258982?e=1763380800&v=beta&t=bqmr2SiacIqTjkFzh6Z3rhnK_uCf4YMbQm0T9A99_50');">
+            <div class="carousel-slide slide-bg-projects" data-bg="https://media.licdn.com/dms/image/v2/D4D2DAQGPNG70e_p9Yg/profile-treasury-image-shrink_8192_8192/B4DZZ8i8i0GcAg-/0/1745846258982?e=1763380800&v=beta&t=bqmr2SiacIqTjkFzh6Z3rhnK_uCf4YMbQm0T9A99_50">
                 <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="prime-logo-badge">
-                        <svg viewBox="0 0 80 28" fill="#00a8e1">
-                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
-                        </svg>
-                    </div>
+                <div class="slide-content slide-content-minimal">
+                    <h1 class="slide-title">Agricultural Analytics Dashboard</h1>
                     <p class="slide-category">Data Analytics | Power BI | Business Intelligence</p>
-                    <h1 class="slide-title">Agriculture Insights</h1>
-                    <div class="slide-tag">#DataVisualization</div>
-                    <div class="slide-buttons">
-                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
-                            View Dashboard
-                        </button>
-                        <button class="slide-btn-icon" title="Add to list">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <button class="slide-btn-icon" title="More info">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                    <div class="slide-tagline">
-                        <i class="fas fa-star"></i>
-                        <span>Interactive Dashboard | Power Query | Agricultural Analytics</span>
-                    </div>
                 </div>
             </div>
         </div>

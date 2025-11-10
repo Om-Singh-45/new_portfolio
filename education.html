@@ -11,6 +11,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="https://im.whatshot.in/img/2018/Feb/inst-1518599468.JPG">
+    <!-- Resource hints -->
+    <link rel="dns-prefetch" href="https://im.whatshot.in">
+    <link rel="dns-prefetch" href="https://s.yimg.com">
+    <link rel="dns-prefetch" href="https://images.uniapply.com">
 </head>
 <body>
     <!-- Navigation -->
@@ -37,92 +43,29 @@
     <section class="hero-carousel">
         <div class="carousel-slides">
             <!-- Slide 1: Vidyalankar Institute of Technology -->
-            <div class="carousel-slide slide-bg-education active" style="background-image: url('https://im.whatshot.in/img/2018/Feb/inst-1518599468.JPG');">
+            <div class="carousel-slide slide-bg-education active" data-bg="https://im.whatshot.in/img/2018/Feb/inst-1518599468.JPG">
                 <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="prime-logo-badge">
-                        <svg viewBox="0 0 80 28" fill="#00a8e1">
-                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
-                        </svg>
-                    </div>
-                    <p class="slide-category">Vidyalankar Institute of Technology | B.Tech</p>
-                    <h1 class="slide-title">B.Tech</h1>
-                    <div class="slide-tag">#CurrentlyPursuing</div>
-                    <div class="slide-buttons">
-                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
-                            View Education
-                        </button>
-                        <button class="slide-btn-icon" title="Add to list">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <button class="slide-btn-icon" title="More info">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                    <div class="slide-tagline">
-                        <i class="fas fa-star"></i>
-                        <span>Software Development | AI & ML | Data Analytics</span>
-                    </div>
+                <div class="slide-content slide-content-minimal">
+                    <h1 class="slide-title">Bachelor of Technology</h1>
+                    <p class="slide-category">Vidyalankar Institute of Technology | 2022 - Present</p>
                 </div>
             </div>
             
             <!-- Slide 2: Guru Nanak Khalsa College -->
-            <div class="carousel-slide slide-bg-education" style="background-image: url('https://s.yimg.com/zb/imgv1/73d24b85-1f27-3c43-a94d-dd1cdd9b8720/t_500x300');">
+            <div class="carousel-slide slide-bg-education" data-bg="https://s.yimg.com/zb/imgv1/73d24b85-1f27-3c43-a94d-dd1cdd9b8720/t_500x300">
                 <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="prime-logo-badge">
-                        <svg viewBox="0 0 80 28" fill="#00a8e1">
-                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
-                        </svg>
-                    </div>
-                    <p class="slide-category">Guru Nanak Khalsa College | Science Stream</p>
-                    <h1 class="slide-title">HSC</h1>
-                    <div class="slide-tag">#HigherSecondary</div>
-                    <div class="slide-buttons">
-                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
-                            Learn More
-                        </button>
-                        <button class="slide-btn-icon" title="Add to list">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <button class="slide-btn-icon" title="More info">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                    <div class="slide-tagline">
-                        <i class="fas fa-star"></i>
-                        <span>Mathematics | Physics | Chemistry | 2020-2022</span>
-                    </div>
+                <div class="slide-content slide-content-minimal">
+                    <h1 class="slide-title">Higher Secondary Certificate</h1>
+                    <p class="slide-category">Guru Nanak Khalsa College | Science Stream | 2020 - 2022</p>
                 </div>
             </div>
             
             <!-- Slide 3: Our Lady of Salvation -->
-            <div class="carousel-slide slide-bg-education" style="background-image: url('https://images.uniapply.com/uploads/college/image/500/4610/Building_UA_210503_131143.png');">
+            <div class="carousel-slide slide-bg-education" data-bg="https://images.uniapply.com/uploads/college/image/500/4610/Building_UA_210503_131143.png">
                 <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="prime-logo-badge">
-                        <svg viewBox="0 0 80 28" fill="#00a8e1">
-                            <text x="5" y="20" fill="#00a8e1" font-family="Arial" font-weight="bold" font-size="16">prime</text>
-                        </svg>
-                    </div>
-                    <p class="slide-category">Our Lady of Salvation High School | Foundation</p>
-                    <h1 class="slide-title">SSC</h1>
-                    <div class="slide-tag">#SecondarySchool</div>
-                    <div class="slide-buttons">
-                        <button class="slide-btn-primary" onclick="document.querySelector('.prime-content').scrollIntoView({behavior: 'smooth'})">
-                            View Timeline
-                        </button>
-                        <button class="slide-btn-icon" title="Add to list">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <button class="slide-btn-icon" title="More info">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                    <div class="slide-tagline">
-                        <i class="fas fa-star"></i>
-                        <span>Academic Foundation | Mathematics | Science | Until 2020</span>
-                    </div>
+                <div class="slide-content slide-content-minimal">
+                    <h1 class="slide-title">Secondary School Certificate</h1>
+                    <p class="slide-category">Our Lady of Salvation High School | Academic Foundation | Until 2020</p>
                 </div>
             </div>
         </div>
@@ -161,7 +104,7 @@
                 <div class="prime-slider education-slider">
                     <div class="education-prime-card">
                         <div class="education-image">
-                            <img src="https://im.whatshot.in/img/2018/Feb/inst-1518599468.JPG" alt="Vidyalankar Institute">
+                            <img src="https://im.whatshot.in/img/2018/Feb/inst-1518599468.JPG" alt="Vidyalankar Institute" loading="lazy">
                             <div class="education-badge">Present</div>
                         </div>
                         <div class="education-info">
@@ -181,7 +124,7 @@
                     
                     <div class="education-prime-card">
                         <div class="education-image">
-                            <img src="https://s.yimg.com/zb/imgv1/73d24b85-1f27-3c43-a94d-dd1cdd9b8720/t_500x300" alt="Guru Nanak Khalsa College">
+                            <img src="https://s.yimg.com/zb/imgv1/73d24b85-1f27-3c43-a94d-dd1cdd9b8720/t_500x300" alt="Guru Nanak Khalsa College" loading="lazy">
                             <div class="education-badge">Completed</div>
                         </div>
                         <div class="education-info">
@@ -201,7 +144,7 @@
                     
                     <div class="education-prime-card">
                         <div class="education-image">
-                            <img src="https://images.uniapply.com/uploads/college/image/500/4610/Building_UA_210503_131143.png" alt="Our Lady of Salvation">
+                            <img src="https://images.uniapply.com/uploads/college/image/500/4610/Building_UA_210503_131143.png" alt="Our Lady of Salvation" loading="lazy">
                             <div class="education-badge">Completed</div>
                         </div>
                         <div class="education-info">

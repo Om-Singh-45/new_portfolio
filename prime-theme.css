@@ -430,19 +430,77 @@
     }
     
     .prime-card {
-        min-width: 280px;
+        min-width: 260px;
     }
     
     .skill-prime-card {
-        min-width: 220px;
+        min-width: 180px;
+        padding: 20px 15px;
     }
     
     .education-prime-card {
-        min-width: 320px;
+        min-width: 280px;
     }
     
     .slider-btn {
         display: none;
+    }
+    
+    /* Mobile Card Enhancements */
+    .card-image {
+        height: 160px;
+    }
+    
+    .education-image {
+        height: 180px;
+    }
+    
+    .skill-icon-wrapper {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+    
+    .skill-prime-card h3 {
+        font-size: 18px;
+    }
+    
+    .education-info {
+        padding: 20px;
+    }
+    
+    .education-info h3 {
+        font-size: 20px;
+    }
+    
+    .institute {
+        font-size: 15px;
+    }
+    
+    .duration {
+        font-size: 13px;
+    }
+    
+    .highlights span {
+        font-size: 13px;
+    }
+    
+    .card-content h3 {
+        font-size: 17px;
+    }
+    
+    .card-content p {
+        font-size: 13px;
+    }
+    
+    .tech-icons span {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+    
+    .overlay-btn {
+        padding: 10px 15px;
+        font-size: 13px;
     }
 }
 

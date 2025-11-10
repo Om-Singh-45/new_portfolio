@@ -79,21 +79,27 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all prime rows
-document.querySelectorAll('.prime-row').forEach(row => {
-    row.style.opacity = '0';
-    row.style.transform = 'translateY(30px)';
-    row.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(row);
-});
+// Observe all prime rows (only if they exist)
+const primeRows = document.querySelectorAll('.prime-row');
+if (primeRows.length > 0) {
+    primeRows.forEach(row => {
+        row.style.opacity = '0';
+        row.style.transform = 'translateY(30px)';
+        row.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(row);
+    });
+}
 
-// Card hover glow effect
-document.querySelectorAll('.prime-card, .skill-prime-card, .education-prime-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.filter = 'drop-shadow(0 0 20px rgba(0, 170, 255, 0.6))';
+// Card hover glow effect (only if cards exist)
+const cards = document.querySelectorAll('.prime-card, .skill-prime-card, .education-prime-card');
+if (cards.length > 0) {
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.filter = 'drop-shadow(0 0 20px rgba(0, 170, 255, 0.6))';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.filter = 'none';
+        });
     });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.filter = 'none';
-    });
-});
+}

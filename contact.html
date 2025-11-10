@@ -6,6 +6,10 @@
     <title>Contact - Om Singh</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&h=1080&fit=crop">
+    <!-- Resource hints -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
 </head>
 <body>
     <!-- Navigation -->
@@ -29,7 +33,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="page-hero page-hero-contact">
+    <section class="page-hero page-hero-contact" data-bg="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&h=1080&fit=crop">
         <div class="page-hero-overlay"></div>
         <div class="page-hero-content">
             <div class="prime-badge"></div>
