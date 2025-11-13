@@ -6,6 +6,16 @@
     <title>Om Singh - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // If viewer hasn't picked a role yet this session, go to the welcome gate
+        (function () {
+            try {
+                if (sessionStorage.getItem('viewerPicked') !== '1') {
+                    location.replace('welcome.html');
+                }
+            } catch (_) {}
+        })();
+    </script>
     <!-- Preload critical images -->
     <link rel="preload" as="image" href="https://github.com/Om-Singh-45/Portfolio/blob/main/images/projects/Screenshot%202025-11-10%20164152.png?raw=true">
     <link rel="preload" as="image" href="https://om-singh-45.github.io/Portfolio/images/projects/text_to_image.png">
