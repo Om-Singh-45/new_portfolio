@@ -2226,3 +2226,249 @@ body.nav-open {
 .carousel-slide.loaded {
     opacity: 1;
 }
+
+/* ------------------------------------
+   Footer
+-------------------------------------*/
+.footer {
+	background: linear-gradient(180deg, #0e1420 0%, #0b111a 100%);
+	border-top: 1px solid rgba(26, 152, 255, 0.12);
+	margin-top: 40px;
+}
+.footer-inner {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 32px 20px;
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	gap: 24px;
+	align-items: start;
+}
+.footer-brand {
+	font-weight: 700;
+	font-size: 20px;
+	background: linear-gradient(135deg, #1a98ff 0%, #00d4ff 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+.footer-links, .footer-social {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+}
+.footer-links a {
+	color: #cbd5e1;
+	text-decoration: none;
+	font-size: 14px;
+	transition: color .2s ease;
+}
+.footer-links a:hover {
+	color: #00d4ff;
+}
+.footer-social a {
+	color: #9cccf8;
+	font-size: 18px;
+	transition: transform .2s ease, color .2s ease;
+}
+.footer-social a:hover {
+	transform: translateY(-2px);
+	color: #00d4ff;
+}
+.footer-copy {
+	grid-column: 1 / -1;
+	text-align: center;
+	color: #94a3b8;
+	font-size: 13px;
+	padding-top: 8px;
+	border-top: 1px solid rgba(26, 152, 255, 0.08);
+}
+@media (max-width: 768px) {
+	.footer-inner {
+		grid-template-columns: 1fr;
+		text-align: center;
+		justify-items: center;
+	}
+}
+
+/* Education slider on home */
+#education .carousel {
+	padding: 0 60px;
+	margin: 0 -60px;
+}
+#education .carousel-container {
+	display: flex;
+	gap: 20px;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	padding: 10px 0;
+}
+#education .carousel-container::-webkit-scrollbar { display: none; }
+#education .carousel-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(26, 152, 255, 0.9);
+	border: none;
+	color: #ffffff;
+	font-size: 20px;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 10;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 15px rgba(26, 152, 255, 0.4);
+	opacity: 0.9;
+}
+#education .carousel-btn.left { left: 0; }
+#education .carousel-btn.right { right: 0; }
+@media (max-width: 768px) {
+	#education .carousel { padding: 0 40px; margin: 0 -20px; }
+	#education .carousel-btn { width: 40px; height: 40px; font-size: 16px; }
+}
+
+/* Make images responsive by default */
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* ------------------------------------
+   Additional Responsiveness Enhancements
+-------------------------------------*/
+@media (max-width: 1200px) {
+	.nav-container {
+		padding: 0 32px;
+	}
+	.hero-content {
+		padding: 0 32px;
+	}
+	.content-section {
+		padding: 60px 32px;
+	}
+	.page-header {
+		padding: 140px 32px 70px;
+	}
+}
+
+@media (max-width: 992px) {
+	.nav-container {
+		padding: 0 24px;
+	}
+	.hero-content {
+		padding: 0 24px;
+	}
+	.content-section {
+		padding: 50px 24px;
+	}
+	.page-header {
+		padding: 130px 24px 60px;
+	}
+	.section-header {
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+	.view-more {
+		margin-left: auto;
+	}
+}
+
+@media (max-width: 576px) {
+	html {
+		font-size: 13px;
+	}
+	.nav-container {
+		padding: 0 16px;
+	}
+	.nav-brand {
+		font-size: 20px;
+	}
+	/* Ensure off-canvas menu is usable on very small screens */
+	.nav-links {
+		width: 85%;
+		max-width: 280px;
+	}
+	.hero-content {
+		padding: 0 16px;
+	}
+	.hero-text h1 {
+		font-size: 32px;
+	}
+	.hero-subtitle {
+		font-size: 18px;
+	}
+	.hero-description {
+		font-size: 14px;
+	}
+	/* Tighten carousel gutters */
+	.carousel {
+		padding: 0 24px;
+		margin: 0 -16px;
+	}
+	.card {
+		min-width: 260px;
+		max-width: 85vw;
+	}
+	.card img {
+		height: 150px;
+	}
+	.section-title {
+		font-size: 24px;
+	}
+	.content-section {
+		padding: 36px 16px;
+	}
+	/* Stack header details better */
+	.experience-header {
+		flex-direction: column;
+		align-items: flex-start;
+		padding-right: 0;
+		gap: 8px;
+	}
+	.company-logo {
+		top: 16px;
+		right: 16px;
+		width: 64px;
+		height: 64px;
+	}
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+	.skills-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 380px) {
+	/* Ultra-small devices */
+	.nav-container {
+		padding: 0 12px;
+	}
+	.hero-content {
+		padding: 0 12px;
+	}
+	.content-section {
+		padding: 28px 12px;
+	}
+	.nav-links {
+		width: 88%;
+		max-width: 260px;
+	}
+	.card {
+		min-width: 240px;
+	}
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation: none !important;
+		transition: none !important;
+		scroll-behavior: auto !important;
+	}
+}

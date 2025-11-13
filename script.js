@@ -207,6 +207,52 @@ carousels.forEach(carousel => {
             });
         });
     }
+
+    // Drag / swipe to scroll
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let hasMoved = false;
+
+    if (container) {
+        container.addEventListener('pointerdown', (e) => {
+            isDown = true;
+            hasMoved = false;
+            container.classList.add('dragging');
+            startX = e.clientX;
+            scrollLeft = container.scrollLeft;
+            container.setPointerCapture(e.pointerId);
+        });
+        container.addEventListener('pointermove', (e) => {
+            if (!isDown) return;
+            const dx = e.clientX - startX;
+            if (Math.abs(dx) > 3) hasMoved = true;
+            container.scrollLeft = scrollLeft - dx;
+        });
+        const endDrag = (e) => {
+            isDown = false;
+            container.classList.remove('dragging');
+        };
+        container.addEventListener('pointerup', endDrag);
+        container.addEventListener('pointerleave', endDrag);
+
+        // Prevent clicks while dragging
+        container.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('click', (e) => {
+                if (hasMoved) e.preventDefault();
+            }, true);
+        });
+
+        // Touch inertia (simple)
+        let lastX = 0;
+        let lastTime = 0;
+        container.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].clientX;
+            const t = performance.now();
+            lastX = x;
+            lastTime = t;
+        }, { passive: true });
+    }
 });
 
 // Add animation on scroll
@@ -780,6 +826,40 @@ document.addEventListener('DOMContentLoaded', () => {
     lazyLoadCarouselImages();
 });
 
+// ----------------------------------------
+// Swipe support for hero carousels
+// ----------------------------------------
+document.querySelectorAll('.hero-carousel').forEach(hero => {
+    const slides = hero.querySelector('.carousel-slides');
+    const prevBtn = hero.querySelector('.carousel-nav.prev');
+    const nextBtn = hero.querySelector('.carousel-nav.next');
+    if (!slides || !prevBtn || !nextBtn) return;
+
+    let touchStartX = 0;
+    let touchActive = false;
+
+    slides.addEventListener('touchstart', (e) => {
+        touchActive = true;
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    slides.addEventListener('touchmove', (e) => {
+        if (!touchActive) return;
+        const dx = e.touches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) {
+            if (dx > 0) {
+                prevBtn.click();
+            } else {
+                nextBtn.click();
+            }
+            touchActive = false;
+        }
+    }, { passive: true });
+
+    slides.addEventListener('touchend', () => {
+        touchActive = false;
+    });
+});
 // Check if device is mobile
 function isMobile() {
     return window.innerWidth <= 768;

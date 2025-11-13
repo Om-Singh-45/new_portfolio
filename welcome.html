@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Who’s watching?</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<meta name="theme-color" content="#0f171e">
+	<style>
+		:root { color-scheme: dark; }
+		* { box-sizing: border-box; }
+		html, body { height: 100%; }
+		body {
+			margin: 0;
+			background: #0f171e;
+			color: #e5e7eb;
+			font-family: 'Amazon Ember', Arial, sans-serif;
+			display: grid;
+			place-items: center;
+		}
+		.container { max-width: 980px; padding: 24px; width: 100%; }
+		h1 {
+			text-align: center;
+			font-size: clamp(28px, 4vw, 56px);
+			font-weight: 700;
+			margin: 0 0 32px;
+			color: #ffffff;
+		}
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(220px, 1fr));
+			gap: 28px;
+			place-content: center;
+		}
+		.card {
+			background: #111827;
+			border: 1px solid rgba(26, 152, 255, 0.15);
+			border-radius: 14px;
+			padding: 16px;
+			cursor: pointer;
+			transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+			text-align: center;
+		}
+		.card:focus-visible { outline: 3px solid #00d4ff; outline-offset: 2px; }
+		.card:hover {
+			transform: translateY(-4px);
+			border-color: rgba(26, 152, 255, 0.35);
+			box-shadow: 0 10px 30px rgba(26, 152, 255, 0.18);
+		}
+		.card img {
+			display: block;
+			width: 100%;
+			aspect-ratio: 1/1;
+			object-fit: cover;
+			border-radius: 10px;
+			filter: none;
+			transition: filter .2s ease, transform .2s ease;
+		}
+		.card:hover img { transform: scale(1.02); }
+		.card h3 {
+			margin: 12px 0 4px;
+			color: #ffffff;
+			font-size: 18px;
+			font-weight: 700;
+		}
+		.card p {
+			margin: 0;
+			color: #9ca3af;
+			font-size: 14px;
+		}
+		.note {
+			text-align: center;
+			margin-top: 18px;
+			color: #94a3b8;
+			font-size: 13px;
+		}
+		@media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+	</style>
+	<script>
+		(function () {
+			try {
+				if (sessionStorage.getItem('viewerPicked') === '1') {
+					location.replace('index.html');
+				}
+			} catch (_) {}
+		})();
+		function goHome(role) {
+			try {
+				sessionStorage.setItem('viewerPicked', '1');
+				sessionStorage.setItem('viewerRole', role);
+			} catch (_) {}
+			location.href = 'index.html';
+		}
+	</script>
+</head>
+<body>
+	<main class="container" aria-labelledby="title">
+		<h1 id="title">Who’s watching?</h1>
+		<div class="grid" role="list">
+			<button class="card" role="listitem" onclick="goHome('Recruiter')" aria-label="Continue as Recruiter">
+				<img src="https://github.com/Om-Singh-45/Portfolio/blob/main/images/Gemini_Generated_Image_7q31ie7q31ie7q31.png?raw=true" alt="Recruiter profile image">
+				<h3>Recruiter</h3>
+				<p>Explore projects and impact</p>
+			</button>
+			<button class="card" role="listitem" onclick="goHome('Adventurer')" aria-label="Continue as Adventurer">
+				<img src="https://github.com/Om-Singh-45/Portfolio/blob/main/images/Gemini_Generated_Image_n3skivn3skivn3sk.png?raw=true" alt="Adventurer profile image">
+				<h3>Adventurer</h3>
+				<p>Discover journeys and skills</p>
+			</button>
+		</div>
+		<div class="note">Both options lead to the portfolio home.</div>
+	</main>
+</body>
+</html>
+
+
