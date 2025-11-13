@@ -58,6 +58,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Theme toggle logic
+const THEME_STORAGE_KEY = 'preferred-theme';
+let themeToggleButtons = [];
+
+const updateThemeToggleButtons = (theme) => {
+    themeToggleButtons.forEach((btn) => {
+        const icon = btn.querySelector('i');
+        if (!icon) return;
+        if (theme === 'dark') {
+            icon.className = 'fas fa-sun';
+            btn.setAttribute('aria-label', 'Switch to light mode');
+            btn.setAttribute('title', 'Switch to light mode');
+        } else {
+            icon.className = 'fas fa-moon';
+            btn.setAttribute('aria-label', 'Switch to dark mode');
+            btn.setAttribute('title', 'Switch to dark mode');
+        }
+    });
+};
+
+const applyThemePreference = (theme, shouldPersist = true) => {
+    const normalizedTheme = theme === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', normalizedTheme);
+    updateThemeToggleButtons(normalizedTheme);
+    if (shouldPersist) {
+        try {
+            localStorage.setItem(THEME_STORAGE_KEY, normalizedTheme);
+        } catch (error) {
+            console.warn('Unable to persist theme preference', error);
+        }
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    themeToggleButtons = Array.from(document.querySelectorAll('.theme-toggle'));
+    if (!themeToggleButtons.length) {
+        return;
+    }
+
+    const htmlTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    updateThemeToggleButtons(htmlTheme);
+
+    try {
+        if (!localStorage.getItem(THEME_STORAGE_KEY)) {
+            localStorage.setItem(THEME_STORAGE_KEY, htmlTheme);
+        }
+    } catch (error) {
+        console.warn('Local storage unavailable for theme persistence', error);
+    }
+
+    themeToggleButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyThemePreference(nextTheme);
+        });
+    });
+});
+
 // Enhanced Navigation - Active Link Tracking
 document.addEventListener('DOMContentLoaded', () => {
     const navLinksArray = document.querySelectorAll('.nav-links a');
@@ -824,6 +883,109 @@ function lazyLoadCarouselImages() {
 // Call lazy loading for carousel images
 document.addEventListener('DOMContentLoaded', () => {
     lazyLoadCarouselImages();
+});
+
+// ----------------------------------------
+// Persona-based welcome modal
+// ----------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('welcomeModal');
+    if (!modal) return;
+
+    try {
+        const picked = sessionStorage.getItem('viewerPicked');
+        const role = sessionStorage.getItem('viewerRole') || 'Adventurer';
+        const alreadyShown = sessionStorage.getItem('welcomeShown');
+
+        if (picked !== '1' || alreadyShown === '1') {
+            return;
+        }
+
+        const titleEl = modal.querySelector('#welcomeTitle');
+        const bodyEl = modal.querySelector('#welcomeDescription');
+        const ctaBtn = modal.querySelector('.welcome-modal__cta');
+        const closeBtn = modal.querySelector('.welcome-modal__close');
+        const panel = modal.querySelector('.welcome-modal__panel');
+
+        const welcomeMessages = {
+            Recruiter: {
+                title: '💼 Welcome Recruiter',
+                body: `
+                    <p>I’m Om Singh, an AI &amp; Full-Stack Developer passionate about building intelligent, user-centric solutions that balance technology with creativity.</p>
+                    <p>From conversational chatbots to data-driven Power BI dashboards, this space curates the projects, results, and growth stories that matter to decision-makers.</p>
+                    <p>Take a guided tour of my flagship work or browse freely—either way, I’m excited to show you what’s possible.</p>
+                `,
+                cta: 'Let’s go!',
+                action: () => {
+                    const heroSection = document.querySelector('#home');
+                    if (heroSection) {
+                        heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }
+            },
+            Adventurer: {
+                title: '🚀 Hey there, tech traveler! 👋',
+                body: `
+                    <p>Welcome to OmVerse, my digital playground where AI experiments meet creative code.</p>
+                    <p>I’m Om—a curious developer who turns late-night caffeine into clean builds and playful prototypes.</p>
+                    <p>Wander through living dashboards, storytelling algorithms, and projects with plenty of heart (and the occasional Easter egg). Ready to explore?</p>
+                `,
+                cta: 'Let’s go!',
+                action: () => {
+                    const heroSection = document.querySelector('#home');
+                    if (heroSection) {
+                        heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }
+            }
+        };
+
+        const copy = welcomeMessages[role] || welcomeMessages.Adventurer;
+        titleEl.textContent = copy.title;
+        bodyEl.innerHTML = copy.body;
+        ctaBtn.textContent = copy.cta;
+
+        const dismiss = () => {
+            modal.setAttribute('aria-hidden', 'true');
+            modal.hidden = true;
+            document.body.classList.remove('modal-open');
+            sessionStorage.setItem('welcomeShown', '1');
+            document.removeEventListener('keydown', handleKeydown);
+        };
+
+        const handleKeydown = (event) => {
+            if (event.key === 'Escape') {
+                dismiss();
+            }
+        };
+
+        closeBtn.addEventListener('click', dismiss, { once: true });
+        modal.addEventListener('click', (event) => {
+            if (event.target.classList.contains('welcome-modal__backdrop')) {
+                dismiss();
+            }
+        });
+
+        ctaBtn.addEventListener('click', () => {
+            dismiss();
+            if (typeof copy.action === 'function') {
+                setTimeout(copy.action, 150);
+            }
+        }, { once: true });
+
+        modal.hidden = false;
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        document.addEventListener('keydown', handleKeydown);
+        panel.focus();
+
+    } catch (error) {
+        console.warn('Welcome modal could not be displayed:', error);
+    }
 });
 
 // ----------------------------------------

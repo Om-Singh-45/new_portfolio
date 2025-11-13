@@ -1,9 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education - Om Singh</title>
+    <script>
+        (function () {
+            try {
+                const stored = localStorage.getItem('preferred-theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = stored || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (err) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="prime-theme.css">
     <link rel="stylesheet" href="hero-carousel.css">
@@ -38,6 +50,10 @@
                 <a href="contact.html">Contact</a>
             </div>
             <div class="nav-icons">
+                <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+                    <span class="sr-only">Toggle theme</span>
+                    <i class="fas fa-sun"></i>
+                </button>
                 <i class="fas fa-search"></i>
                 <i class="fas fa-user-circle"></i>
             </div>
